@@ -1,4 +1,3 @@
-// components/movie/MovieCard.js
 "use client";
 
 import Image from "next/image";
@@ -18,7 +17,7 @@ export default function MovieCard({ movie }) {
 
   return (
     <Link href={`/movies/${id}`}>
-      <div className="bg-slate-800 rounded overflow-hidden shadow-lg h-full transition-transform hover:scale-105 hover:shadow-xl">
+      <div className="bg-[#00539C] rounded overflow-hidden shadow-lg h-full transition-transform hover:scale-105 hover:shadow-xl">
         <div className="relative h-80">
           {posterUrl ? (
             <Image
@@ -29,8 +28,8 @@ export default function MovieCard({ movie }) {
               className="object-cover"
             />
           ) : (
-            <div className="bg-slate-700 h-full flex items-center justify-center">
-              <span className="text-slate-500">No image available</span>
+            <div className="bg-[#1a6ab1] h-full flex items-center justify-center">
+              <span className="text-white">No image available</span>
             </div>
           )}
         </div>
@@ -39,13 +38,13 @@ export default function MovieCard({ movie }) {
           <h3 className="font-bold text-lg text-white truncate">{title}</h3>
 
           <div className="flex justify-between items-center mt-2">
-            <div className="text-slate-400">{releaseYear}</div>
+            <div className="text-gray-100">{releaseYear}</div>
             <div className="flex items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                className="w-5 h-5 text-yellow-500 mr-1"
+                className="w-5 h-5 text-yellow-400 mr-1"
               >
                 <path
                   fillRule="evenodd"

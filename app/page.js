@@ -1,4 +1,3 @@
-// app/page.js
 import Link from "next/link";
 import MovieGrid from "../components/movie/MovieGrid";
 import SearchBar from "../components/ui/SearchBar";
@@ -12,21 +11,18 @@ export default async function HomePage() {
   return (
     <div>
       <section className="mb-10">
-        <h1 className="text-3xl font-bold mb-6 text-white">Discover Movies</h1>
-        <p className="text-slate-300 mb-6">
-          Search for your favorite movies, create a watchlist, and keep track of
-          what you&apos;ve watched.
-        </p>
-
+        <h1 className="text-3xl font-bold mb-6 text-gray-800">
+          Discover Movies
+        </h1>
         <div className="mb-8">
           <SearchBar />
         </div>
 
         <div className="flex justify-between items-center">
-          <h2 className="text-2xl font-bold text-white">Trending Now</h2>
+          <h2 className="text-2xl font-bold text-gray-800">Trending Now</h2>
           <Link
             href="/movies/search?sort=trending"
-            className="text-blue-400 hover:text-blue-300"
+            className="text-[#00539C] hover:text-[#003d73]"
           >
             View all
           </Link>
@@ -37,10 +33,10 @@ export default async function HomePage() {
 
       <section className="mb-10">
         <div className="flex justify-between items-center">
-          <h2 className="text-2xl font-bold text-white">Top Rated</h2>
+          <h2 className="text-2xl font-bold text-gray-800">Top Rated</h2>
           <Link
             href="/movies/search?sort=top_rated"
-            className="text-blue-400 hover:text-blue-300"
+            className="text-[#00539C] hover:text-[#003d73]"
           >
             View all
           </Link>

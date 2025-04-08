@@ -1,6 +1,4 @@
 "use client";
-
-// app/auth/signin/page.js
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "../../../context/AuthContext";
@@ -29,27 +27,27 @@ export default function SignInPage() {
     return (
       <div className="flex justify-center items-center min-h-[60vh]">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mx-auto"></div>
-          <p className="mt-4 text-slate-300">Loading...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#00539C] mx-auto"></div>
+          <p className="mt-4 text-gray-600">Loading...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="max-w-md mx-auto bg-slate-800 rounded-lg shadow-lg p-8 mt-10">
-      <h1 className="text-2xl font-bold text-center mb-6">
+    <div className="max-w-md mx-auto bg-white rounded-lg shadow-lg p-8 mt-10 border border-gray-200">
+      <h1 className="text-2xl font-bold text-center mb-6 text-gray-800">
         Sign In to CineTrack
       </h1>
 
-      <p className="text-slate-300 text-center mb-8">
+      <p className="text-gray-600 text-center mb-8">
         Sign in to track your favorite movies and manage your watchlist.
       </p>
 
       <div className="flex flex-col space-y-4">
         <button
           onClick={handleGithubSignIn}
-          className="flex items-center justify-center gap-2 bg-slate-700 hover:bg-slate-600 text-white py-3 px-4 rounded-md transition duration-200"
+          className="flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-900 text-white py-3 px-4 rounded-md transition duration-200"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

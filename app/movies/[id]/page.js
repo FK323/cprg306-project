@@ -26,23 +26,25 @@ export default async function MovieDetailsPage({ params }) {
           <div className="lg:col-span-2">
             {/* Synopsis Section */}
             <section className="mb-8">
-              <h2 className="text-2xl font-bold mb-4 text-white">Synopsis</h2>
-              <p className="text-slate-300">
+              <h2 className="text-2xl font-bold mb-4 text-gray-800">
+                Synopsis
+              </h2>
+              <p className="text-gray-700">
                 {movie.overview || "No synopsis available."}
               </p>
             </section>
 
             {/* Cast Section */}
             <section className="mb-8">
-              <h2 className="text-2xl font-bold mb-4 text-white">Cast</h2>
+              <h2 className="text-2xl font-bold mb-4 text-gray-800">Cast</h2>
               {cast.length > 0 ? (
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                   {cast.map((person) => (
                     <div
                       key={person.id}
-                      className="bg-slate-800 rounded overflow-hidden text-center"
+                      className="bg-white rounded overflow-hidden text-center shadow border border-gray-200"
                     >
-                      <div className="aspect-[2/3] bg-slate-700 relative">
+                      <div className="aspect-[2/3] bg-gray-200 relative">
                         {person.profile_path ? (
                           <img
                             src={`https://image.tmdb.org/t/p/w185${person.profile_path}`}
@@ -51,15 +53,15 @@ export default async function MovieDetailsPage({ params }) {
                           />
                         ) : (
                           <div className="absolute inset-0 flex items-center justify-center">
-                            <span className="text-slate-500">No image</span>
+                            <span className="text-gray-500">No image</span>
                           </div>
                         )}
                       </div>
                       <div className="p-2">
-                        <p className="font-medium text-white truncate">
+                        <p className="font-medium text-gray-800 truncate">
                           {person.name}
                         </p>
-                        <p className="text-sm text-slate-400 truncate">
+                        <p className="text-sm text-gray-500 truncate">
                           {person.character}
                         </p>
                       </div>
@@ -67,7 +69,7 @@ export default async function MovieDetailsPage({ params }) {
                   ))}
                 </div>
               ) : (
-                <p className="text-slate-400">No cast information available.</p>
+                <p className="text-gray-500">No cast information available.</p>
               )}
             </section>
           </div>
@@ -75,10 +77,10 @@ export default async function MovieDetailsPage({ params }) {
           {/* Right column: Trailer */}
           <div>
             <section className="mb-8">
-              <h2 className="text-2xl font-bold mb-4 text-white">Trailer</h2>
+              <h2 className="text-2xl font-bold mb-4 text-black">Trailer</h2>
               {trailer ? (
                 <div
-                  className="relative bg-slate-800 rounded overflow-hidden"
+                  className="relative bg-gray-100 rounded overflow-hidden shadow border border-gray-200"
                   style={{ height: "315px" }}
                 >
                   <iframe
@@ -92,8 +94,8 @@ export default async function MovieDetailsPage({ params }) {
                   ></iframe>
                 </div>
               ) : (
-                <div className="bg-slate-800 rounded p-4 text-center">
-                  <p className="text-slate-400">No trailer available.</p>
+                <div className="bg-white rounded p-4 text-center shadow border border-gray-200">
+                  <p className="text-gray-500">No trailer available.</p>
                 </div>
               )}
             </section>

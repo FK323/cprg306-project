@@ -1,4 +1,3 @@
-// components/ui/StarRating.js
 "use client";
 
 import { useState, useEffect } from "react";
@@ -12,7 +11,6 @@ export default function StarRating({ movieId }) {
   const [hover, setHover] = useState(0);
   const [isUpdating, setIsUpdating] = useState(false);
 
-  // Load user's rating for this movie when component mounts
   useEffect(() => {
     if (user && user.ratings && user.ratings[movieId]) {
       setRating(user.ratings[movieId]);
@@ -66,7 +64,7 @@ export default function StarRating({ movieId }) {
               viewBox="0 0 24 24"
               fill="currentColor"
               className={`w-8 h-8 ${
-                star <= (hover || rating) ? "text-yellow-500" : "text-gray-400"
+                star <= (hover || rating) ? "text-yellow-500" : "text-gray-600"
               }`}
             >
               <path
@@ -79,7 +77,7 @@ export default function StarRating({ movieId }) {
         ))}
       </div>
 
-      <div className="text-sm text-slate-400">
+      <div className="text-sm text-gray-600">
         {rating > 0 ? `Your rating: ${rating}/5` : "Rate this movie"}
       </div>
     </div>

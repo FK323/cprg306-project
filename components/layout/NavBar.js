@@ -1,4 +1,3 @@
-// components/layout/NavBar.js
 "use client";
 
 import Link from "next/link";
@@ -10,10 +9,10 @@ export default function NavBar() {
   const { user, logOut } = useAuth();
 
   return (
-    <nav className="bg-slate-900 text-white p-4">
+    <nav className="bg-white text-gray-800 p-4 shadow-md">
       <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center">
         <div className="flex items-center mb-4 sm:mb-0">
-          <Link href="/" className="text-xl font-bold">
+          <Link href="/" className="text-xl font-bold text-[#00539C]">
             CineTrack
           </Link>
         </div>
@@ -21,8 +20,8 @@ export default function NavBar() {
         <div className="flex flex-wrap justify-center gap-4">
           <Link
             href="/"
-            className={`px-3 py-2 rounded hover:bg-slate-700 ${
-              pathname === "/" ? "bg-slate-700" : ""
+            className={`px-3 py-2 rounded hover:bg-gray-100 ${
+              pathname === "/" ? "bg-gray-100 text-[#00539C] font-medium" : ""
             }`}
           >
             Home
@@ -30,8 +29,10 @@ export default function NavBar() {
 
           <Link
             href="/movies/search"
-            className={`px-3 py-2 rounded hover:bg-slate-700 ${
-              pathname === "/movies/search" ? "bg-slate-700" : ""
+            className={`px-3 py-2 rounded hover:bg-gray-100 ${
+              pathname === "/movies/search"
+                ? "bg-gray-100 text-[#00539C] font-medium"
+                : ""
             }`}
           >
             Search
@@ -40,8 +41,10 @@ export default function NavBar() {
           {user && (
             <Link
               href="/watchlist"
-              className={`px-3 py-2 rounded hover:bg-slate-700 ${
-                pathname === "/watchlist" ? "bg-slate-700" : ""
+              className={`px-3 py-2 rounded hover:bg-gray-100 ${
+                pathname === "/watchlist"
+                  ? "bg-gray-100 text-[#00539C] font-medium"
+                  : ""
               }`}
             >
               Watchlist
@@ -50,12 +53,12 @@ export default function NavBar() {
 
           {user ? (
             <div className="flex items-center gap-2">
-              <span className="text-sm hidden md:inline">
+              <span className="text-sm hidden md:inline text-gray-600">
                 {user.displayName}
               </span>
               <button
                 onClick={logOut}
-                className="px-3 py-2 rounded bg-red-600 hover:bg-red-700"
+                className="px-3 py-2 rounded bg-red-500 hover:bg-red-600 text-white"
               >
                 Logout
               </button>
@@ -63,8 +66,8 @@ export default function NavBar() {
           ) : (
             <Link
               href="/auth/signin"
-              className={`px-3 py-2 rounded bg-blue-600 hover:bg-blue-700 ${
-                pathname === "/auth/signin" ? "bg-blue-700" : ""
+              className={`px-3 py-2 rounded bg-[#00539C] hover:bg-[#003d73] text-white ${
+                pathname === "/auth/signin" ? "bg-[#003d73]" : ""
               }`}
             >
               Sign In

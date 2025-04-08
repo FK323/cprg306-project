@@ -1,4 +1,3 @@
-// context/AuthContext.js
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
@@ -12,24 +11,20 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Listen for auth state changes
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (authUser) => {
       if (authUser) {
-        // Get user data from Firestore or create a new document if it doesn't exist
         const userRef = doc(db, "users", authUser.uid);
         const userSnap = await getDoc(userRef);
 
         if (userSnap.exists()) {
           setUser({ uid: authUser.uid, ...userSnap.data() });
         } else {
-          // Create new user document if signing in for the first time
           const userData = {
             uid: authUser.uid,
             email: authUser.email,
             displayName: authUser.displayName,
             photoURL: authUser.photoURL,
-            // Initialize empty watchlist and ratings
             watchlist: [],
             ratings: {},
           };
@@ -76,7 +71,6 @@ export function AuthProvider({ children }) {
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
-// Custom hook to use auth context
 export function useAuth() {
   const context = useContext(AuthContext);
   if (context === undefined) {

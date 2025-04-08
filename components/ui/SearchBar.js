@@ -1,4 +1,3 @@
-// components/ui/SearchBar.js
 "use client";
 
 import { useState, useEffect } from "react";
@@ -48,14 +47,14 @@ export default function SearchBar({ initialValues = {} }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-slate-800 p-6 rounded shadow-md"
+      className="bg-white p-6 rounded shadow-md border border-gray-200"
     >
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {/* Movie Title Input */}
         <div>
           <label
             htmlFor="query"
-            className="block text-sm font-medium text-slate-300 mb-1"
+            className="block text-sm font-medium text-gray-700 mb-1"
           >
             Movie Title
           </label>
@@ -65,7 +64,7 @@ export default function SearchBar({ initialValues = {} }) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search for a movie..."
-            className="w-full p-2 rounded bg-slate-700 text-white border border-slate-600 focus:border-blue-500 focus:outline-none"
+            className="w-full p-2 rounded bg-white text-gray-800 border border-gray-300 focus:border-[#00539C] focus:outline-none"
           />
         </div>
 
@@ -73,7 +72,7 @@ export default function SearchBar({ initialValues = {} }) {
         <div>
           <label
             htmlFor="genre"
-            className="block text-sm font-medium text-slate-300 mb-1"
+            className="block text-sm font-medium text-gray-700 mb-1"
           >
             Genre
           </label>
@@ -81,7 +80,7 @@ export default function SearchBar({ initialValues = {} }) {
             id="genre"
             value={genre}
             onChange={(e) => setGenre(e.target.value)}
-            className="w-full p-2 rounded bg-slate-700 text-white border border-slate-600 focus:border-blue-500 focus:outline-none"
+            className="w-full p-2 rounded bg-white text-gray-800 border border-gray-300 focus:border-[#00539C] focus:outline-none"
           >
             <option value="">All Genres</option>
             {genres.map((g) => (
@@ -96,7 +95,7 @@ export default function SearchBar({ initialValues = {} }) {
         <div>
           <label
             htmlFor="year"
-            className="block text-sm font-medium text-slate-300 mb-1"
+            className="block text-sm font-medium text-gray-700 mb-1"
           >
             Release Year
           </label>
@@ -104,7 +103,7 @@ export default function SearchBar({ initialValues = {} }) {
             id="year"
             value={year}
             onChange={(e) => setYear(e.target.value)}
-            className="w-full p-2 rounded bg-slate-700 text-white border border-slate-600 focus:border-blue-500 focus:outline-none"
+            className="w-full p-2 rounded bg-white text-gray-800 border border-gray-300 focus:border-[#00539C] focus:outline-none"
           >
             <option value="">All Years</option>
             {years.map((y) => (
@@ -120,7 +119,7 @@ export default function SearchBar({ initialValues = {} }) {
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full py-2 bg-blue-600 hover:bg-blue-700 text-white rounded font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 disabled:opacity-70"
+          className="w-full py-2 bg-[#00539C] hover:bg-[#003d73] text-white rounded font-medium focus:outline-none focus:ring-2 focus:ring-[#00539C] focus:ring-opacity-50 disabled:opacity-70"
         >
           {isLoading ? "Searching..." : "Search Movies"}
         </button>

@@ -1,4 +1,3 @@
-// components/movie/MovieHeader.js
 import Image from "next/image";
 import { getImageUrl } from "../../lib/tmdb";
 import WatchlistButton from "../ui/WatchlistButton";
@@ -31,9 +30,9 @@ export default function MovieHeader({ movie }) {
   return (
     <div className="relative">
       {/* Backdrop Image with Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-900">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white">
         {backdropUrl && (
-          <div className="absolute inset-0 opacity-30">
+          <div className="absolute inset-0 opacity-20">
             <Image
               src={backdropUrl}
               alt={`${title} backdrop`}
@@ -58,19 +57,19 @@ export default function MovieHeader({ movie }) {
                 className="w-full h-auto"
               />
             ) : (
-              <div className="bg-slate-700 h-96 flex items-center justify-center">
-                <span className="text-slate-500">No image available</span>
+              <div className="bg-gray-200 h-96 flex items-center justify-center">
+                <span className="text-gray-500">No image available</span>
               </div>
             )}
           </div>
 
           {/* Movie Info */}
           <div className="flex-grow">
-            <h1 className="text-3xl md:text-4xl font-bold text-white">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-800">
               {title}
             </h1>
 
-            <div className="mt-4 grid grid-cols-2 gap-2 text-slate-300">
+            <div className="mt-4 grid grid-cols-2 gap-2 text-gray-600">
               <div>
                 <span className="font-medium">Released:</span> {releaseYear}
               </div>
@@ -96,8 +95,8 @@ export default function MovieHeader({ movie }) {
                     clipRule="evenodd"
                   />
                 </svg>
-                <span className="text-white font-medium">{rating}</span>
-                <span className="text-slate-400 ml-1">/5</span>
+                <span className="text-gray-800 font-medium">{rating}</span>
+                <span className="text-gray-500 ml-1">/5</span>
               </div>
             </div>
 
