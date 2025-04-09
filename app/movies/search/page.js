@@ -45,14 +45,16 @@ export default async function SearchPage({ searchParams }) {
   }
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold mb-6 text-gray-800">Search Movies</h1>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <h1 className="text-3xl font-bold mb-8 text-gray-800">Search Movies</h1>
 
-      <div className="mb-8">
+      <div className="mb-12">
         <SearchBar initialValues={{ query, year, genre }} />
       </div>
 
-      <MovieGrid movies={movies} title={title} />
+      <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+        <MovieGrid movies={movies} title={title} />
+      </div>
     </div>
   );
 }

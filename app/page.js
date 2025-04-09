@@ -9,20 +9,26 @@ export default async function HomePage() {
   const topRatedMovies = await getTopRatedMovies();
 
   return (
-    <div>
-      <section className="mb-10">
-        <h1 className="text-3xl font-bold mb-6 text-gray-800">
+    <div className="content-container">
+      {/* Header section */}
+      <section className="section">
+        <h1 className="text-3xl font-bold text-gray-800 mb-8">
           Discover Movies
         </h1>
-        <div className="mb-8">
+
+        {/* Search bar*/}
+        <div className="mb-12">
           <SearchBar />
         </div>
+      </section>
 
-        <div className="flex justify-between items-center">
-          <h2 className="text-2xl font-bold text-gray-800">Trending Now</h2>
+      {/* Trending movies section */}
+      <section className="section">
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="section-heading mb-0">Trending Now</h2>
           <Link
             href="/movies/search?sort=trending"
-            className="text-[#00539C] hover:text-[#003d73]"
+            className="text-primary hover:text-primary-dark font-medium transition-colors duration-200"
           >
             View all
           </Link>
@@ -31,12 +37,13 @@ export default async function HomePage() {
         <MovieGrid movies={trendingMovies.slice(0, 5)} />
       </section>
 
-      <section className="mb-10">
-        <div className="flex justify-between items-center">
-          <h2 className="text-2xl font-bold text-gray-800">Top Rated</h2>
+      {/* Top Rated movies section */}
+      <section className="section">
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="section-heading mb-0">Top Rated</h2>
           <Link
             href="/movies/search?sort=top_rated"
-            className="text-[#00539C] hover:text-[#003d73]"
+            className="text-primary hover:text-primary-dark font-medium transition-colors duration-200"
           >
             View all
           </Link>

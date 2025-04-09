@@ -15,16 +15,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={${inter.className} bg-background text-text min-h-screen flex flex-col}
+        className={`${inter.className} bg-background text-text min-h-screen flex flex-col`}
       >
         <AuthProvider>
           {/* Navigation bar */}
           <NavBar />
 
-          {/* Main content */}
+          {/* Main content area*/}
           <main className="flex-grow">{children}</main>
 
-          {/* Footer with */}
+          {/* Footer*/}
           <footer className="py-8 bg-background-light border-t border-gray-200">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-text-light text-sm">
               <p>

@@ -34,8 +34,6 @@ export default function SearchBar({ initialValues = {} }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
-
-    // Build query string
     const params = new URLSearchParams();
     if (query) params.append("query", query);
     if (year) params.append("year", year);
@@ -47,14 +45,19 @@ export default function SearchBar({ initialValues = {} }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white p-6 rounded shadow-md border border-gray-200"
+      className="bg-white p-6 rounded-lg shadow-md border border-gray-200"
     >
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {/* Search form heading */}
+      <h2 className="text-xl font-semibold text-gray-800 mb-4">
+        Find Your Next Movie
+      </h2>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Movie Title Input */}
-        <div>
+        <div className="space-y-2">
           <label
             htmlFor="query"
-            className="block text-sm font-medium text-gray-700 mb-1"
+            className="block text-sm font-medium text-gray-700"
           >
             Movie Title
           </label>
@@ -64,15 +67,15 @@ export default function SearchBar({ initialValues = {} }) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search for a movie..."
-            className="w-full p-2 rounded bg-white text-gray-800 border border-gray-300 focus:border-[#00539C] focus:outline-none"
+            className="w-full p-2 rounded-md bg-white text-gray-800 border border-gray-300 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
           />
         </div>
 
         {/* Genre Dropdown */}
-        <div>
+        <div className="space-y-2">
           <label
             htmlFor="genre"
-            className="block text-sm font-medium text-gray-700 mb-1"
+            className="block text-sm font-medium text-gray-700"
           >
             Genre
           </label>
@@ -80,7 +83,7 @@ export default function SearchBar({ initialValues = {} }) {
             id="genre"
             value={genre}
             onChange={(e) => setGenre(e.target.value)}
-            className="w-full p-2 rounded bg-white text-gray-800 border border-gray-300 focus:border-[#00539C] focus:outline-none"
+            className="w-full p-2 rounded-md bg-white text-gray-800 border border-gray-300 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
           >
             <option value="">All Genres</option>
             {genres.map((g) => (
@@ -92,10 +95,10 @@ export default function SearchBar({ initialValues = {} }) {
         </div>
 
         {/* Year Dropdown */}
-        <div>
+        <div className="space-y-2">
           <label
             htmlFor="year"
-            className="block text-sm font-medium text-gray-700 mb-1"
+            className="block text-sm font-medium text-gray-700"
           >
             Release Year
           </label>
@@ -103,7 +106,7 @@ export default function SearchBar({ initialValues = {} }) {
             id="year"
             value={year}
             onChange={(e) => setYear(e.target.value)}
-            className="w-full p-2 rounded bg-white text-gray-800 border border-gray-300 focus:border-[#00539C] focus:outline-none"
+            className="w-full p-2 rounded-md bg-white text-gray-800 border border-gray-300 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
           >
             <option value="">All Years</option>
             {years.map((y) => (
@@ -115,11 +118,11 @@ export default function SearchBar({ initialValues = {} }) {
         </div>
       </div>
 
-      <div className="mt-4">
+      <div className="mt-6">
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full py-2 bg-[#00539C] hover:bg-[#003d73] text-white rounded font-medium focus:outline-none focus:ring-2 focus:ring-[#00539C] focus:ring-opacity-50 disabled:opacity-70"
+          className="w-full md:w-auto px-6 py-2 bg-primary hover:bg-primary-dark text-white rounded-md font-medium focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 disabled:opacity-70 transition-colors duration-200"
         >
           {isLoading ? "Searching..." : "Search Movies"}
         </button>

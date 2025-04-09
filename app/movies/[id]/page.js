@@ -18,31 +18,34 @@ export default async function MovieDetailsPage({ params }) {
 
   return (
     <div>
+      {/* Movie header with backdrop and poster */}
       <MovieHeader movie={movie} />
 
-      <div className="container mx-auto px-4 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Left column: Synopsis & Cast */}
+          {/*Synopsis & Cast */}
           <div className="lg:col-span-2">
-            {/* Synopsis Section */}
-            <section className="mb-8">
-              <h2 className="text-2xl font-bold mb-4 text-gray-800">
+            {/* Synopsis Section*/}
+            <section className="bg-white p-6 rounded-lg shadow-md border border-gray-200 mb-8">
+              <h2 className="text-2xl font-bold mb-4 text-gray-800 pb-3 border-b border-gray-100">
                 Synopsis
               </h2>
-              <p className="text-gray-700">
+              <p className="text-gray-700 leading-relaxed">
                 {movie.overview || "No synopsis available."}
               </p>
             </section>
 
-            {/* Cast Section */}
-            <section className="mb-8">
-              <h2 className="text-2xl font-bold mb-4 text-gray-800">Cast</h2>
+            {/* Cast Section*/}
+            <section className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+              <h2 className="text-2xl font-bold mb-6 text-gray-800 pb-3 border-b border-gray-100">
+                Cast
+              </h2>
               {cast.length > 0 ? (
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                   {cast.map((person) => (
                     <div
                       key={person.id}
-                      className="bg-white rounded overflow-hidden text-center shadow border border-gray-200"
+                      className="bg-white rounded-lg overflow-hidden text-center shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-200"
                     >
                       <div className="aspect-[2/3] bg-gray-200 relative">
                         {person.profile_path ? (
@@ -57,7 +60,7 @@ export default async function MovieDetailsPage({ params }) {
                           </div>
                         )}
                       </div>
-                      <div className="p-2">
+                      <div className="p-3">
                         <p className="font-medium text-gray-800 truncate">
                           {person.name}
                         </p>
@@ -76,11 +79,13 @@ export default async function MovieDetailsPage({ params }) {
 
           {/* Right column: Trailer */}
           <div>
-            <section className="mb-8">
-              <h2 className="text-2xl font-bold mb-4 text-black">Trailer</h2>
+            <section className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+              <h2 className="text-2xl font-bold mb-4 text-gray-800 pb-3 border-b border-gray-100">
+                Trailer
+              </h2>
               {trailer ? (
                 <div
-                  className="relative bg-gray-100 rounded overflow-hidden shadow border border-gray-200"
+                  className="relative bg-gray-100 rounded-lg overflow-hidden shadow-sm border border-gray-200"
                   style={{ height: "315px" }}
                 >
                   <iframe
@@ -94,7 +99,7 @@ export default async function MovieDetailsPage({ params }) {
                   ></iframe>
                 </div>
               ) : (
-                <div className="bg-white rounded p-4 text-center shadow border border-gray-200">
+                <div className="bg-gray-50 rounded-lg p-8 text-center border border-gray-200">
                   <p className="text-gray-500">No trailer available.</p>
                 </div>
               )}

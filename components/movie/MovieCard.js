@@ -17,8 +17,9 @@ export default function MovieCard({ movie }) {
 
   return (
     <Link href={`/movies/${id}`}>
-      <div className="bg-[#00539C] rounded overflow-hidden shadow-lg h-full transition-transform hover:scale-105 hover:shadow-xl">
-        <div className="relative h-80">
+      <div className="bg-white rounded-lg overflow-hidden shadow-md border border-gray-200 h-full transition-transform duration-200 hover:shadow-lg hover:scale-105">
+        {/* Movie poster*/}
+        <div className="relative aspect-[2/3] bg-gray-100">
           {posterUrl ? (
             <Image
               src={posterUrl}
@@ -28,23 +29,26 @@ export default function MovieCard({ movie }) {
               className="object-cover"
             />
           ) : (
-            <div className="bg-[#1a6ab1] h-full flex items-center justify-center">
-              <span className="text-white">No image available</span>
+            <div className="bg-gray-200 h-full flex items-center justify-center">
+              <span className="text-gray-500">No image available</span>
             </div>
           )}
         </div>
 
+        {/* Movie details*/}
         <div className="p-4">
-          <h3 className="font-bold text-lg text-white truncate">{title}</h3>
+          <h3 className="font-bold text-lg text-gray-800 mb-2 truncate">
+            {title}
+          </h3>
 
-          <div className="flex justify-between items-center mt-2">
-            <div className="text-gray-100">{releaseYear}</div>
-            <div className="flex items-center">
+          <div className="flex justify-between items-center">
+            <div className="text-gray-600">{releaseYear}</div>
+            <div className="flex items-center bg-gray-100 px-2 py-1 rounded">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                className="w-5 h-5 text-yellow-400 mr-1"
+                className="w-4 h-4 text-yellow-500 mr-1"
               >
                 <path
                   fillRule="evenodd"
@@ -52,7 +56,7 @@ export default function MovieCard({ movie }) {
                   clipRule="evenodd"
                 />
               </svg>
-              <span className="text-white">{rating}</span>
+              <span className="text-gray-800 font-medium">{rating}</span>
             </div>
           </div>
         </div>

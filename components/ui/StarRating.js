@@ -46,8 +46,8 @@ export default function StarRating({ movieId }) {
   };
 
   return (
-    <div className="flex flex-col">
-      <div className="flex items-center mb-1">
+    <div className="bg-white p-4 rounded-md shadow-sm border border-gray-200">
+      <div className="flex items-center justify-center mb-2">
         {[1, 2, 3, 4, 5].map((star) => (
           <button
             key={star}
@@ -64,8 +64,8 @@ export default function StarRating({ movieId }) {
               viewBox="0 0 24 24"
               fill="currentColor"
               className={`w-8 h-8 ${
-                star <= (hover || rating) ? "text-yellow-500" : "text-gray-600"
-              }`}
+                star <= (hover || rating) ? "text-yellow-500" : "text-gray-300"
+              } transition-colors duration-150`}
             >
               <path
                 fillRule="evenodd"
@@ -77,7 +77,7 @@ export default function StarRating({ movieId }) {
         ))}
       </div>
 
-      <div className="text-sm text-gray-600">
+      <div className="text-center text-sm text-gray-600 font-medium">
         {rating > 0 ? `Your rating: ${rating}/5` : "Rate this movie"}
       </div>
     </div>

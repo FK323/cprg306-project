@@ -53,10 +53,10 @@ export default function WatchlistButton({ movieId, movieData }) {
     <button
       onClick={handleToggleWatchlist}
       disabled={isUpdating}
-      className={`flex items-center px-4 py-2 rounded font-medium focus:outline-none focus:ring-2 focus:ring-opacity-50 ${
+      className={`flex items-center justify-center px-6 py-3 rounded-md font-medium focus:outline-none focus:ring-2 focus:ring-opacity-50 transition-colors duration-200 ${
         isInWatchlist
-          ? "bg-red-500 hover:bg-red-600 focus:ring-red-400 text-white"
-          : "bg-[#00539C] hover:bg-[#003d73] focus:ring-[#00539C] text-white"
+          ? "bg-red-500 hover:bg-red-600 focus:ring-red-300 text-white"
+          : "bg-primary hover:bg-primary-dark focus:ring-primary-light text-white"
       } disabled:opacity-70`}
     >
       {isUpdating ? (
@@ -67,7 +67,7 @@ export default function WatchlistButton({ movieId, movieData }) {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             fill="currentColor"
-            className="w-5 h-5 mr-2 text-white"
+            className="w-5 h-5 mr-2"
           >
             {isInWatchlist ? (
               <path
