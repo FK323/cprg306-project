@@ -9,70 +9,116 @@ export default function NavBar() {
   const { user, logOut } = useAuth();
 
   return (
-    <nav className="bg-white text-gray-800 p-4 shadow-md">
-      <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center">
-        <div className="flex items-center mb-4 sm:mb-0">
-          <Link href="/" className="text-xl font-bold text-[#00539C]">
-            CineTrack
-          </Link>
+    <nav className="bg-white border-b border-gray-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          <div className="flex-shrink-0">
+            <Link href="/" className="text-xl font-bold text-primary">
+              CineTrack
+            </Link>
+          </div>
+
+          {/* Navigation links*/}
+          <div className="hidden md:flex items-center space-x-4">
+            <Link
+              href="/"
+              className={`px-3 py-2 rounded-md text-sm font-medium ${
+                pathname === "/"
+                  ? "bg-gray-100 text-primary"
+                  : "text-gray-700 hover:bg-gray-50 hover:text-primary"
+              }`}
+            >
+              Home
+            </Link>
+
+            <Link
+              href="/movies/search"
+              className={`px-3 py-2 rounded-md text-sm font-medium ${
+                pathname === "/movies/search"
+                  ? "bg-gray-100 text-primary"
+                  : "text-gray-700 hover:bg-gray-50 hover:text-primary"
+              }`}
+            >
+              Search
+            </Link>
+
+            {user && (
+              <Link
+                href="/watchlist"
+                className={`px-3 py-2 rounded-md text-sm font-medium ${
+                  pathname === "/watchlist"
+                    ? "bg-gray-100 text-primary"
+                    : "text-gray-700 hover:bg-gray-50 hover:text-primary"
+                }`}
+              >
+                Watchlist
+              </Link>
+            )}
+          </div>
+
+          {/* Authentication section */}
+          <div className="flex items-center space-x-4">
+            {user ? (
+              <div className="flex items-center space-x-3">
+                <span className="hidden md:inline text-sm text-gray-600">
+                  {user.displayName}
+                </span>
+                <button
+                  onClick={logOut}
+                  className="px-3 py-2 rounded-md text-sm font-medium bg-red-500 text-white hover:bg-red-600"
+                >
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <Link
+                href="/auth/signin"
+                className={`px-3 py-2 rounded-md text-sm font-medium bg-primary text-white hover:bg-primary-dark ${
+                  pathname === "/auth/signin" ? "bg-primary-dark" : ""
+                }`}
+              >
+                Sign In
+              </Link>
+            )}
+          </div>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4">
-          <Link
-            href="/"
-            className={`px-3 py-2 rounded hover:bg-gray-100 ${
-              pathname === "/" ? "bg-gray-100 text-[#00539C] font-medium" : ""
-            }`}
-          >
-            Home
-          </Link>
-
-          <Link
-            href="/movies/search"
-            className={`px-3 py-2 rounded hover:bg-gray-100 ${
-              pathname === "/movies/search"
-                ? "bg-gray-100 text-[#00539C] font-medium"
-                : ""
-            }`}
-          >
-            Search
-          </Link>
-
-          {user && (
+        {/* Mobile menu*/}
+        <div className="md:hidden flex justify-center py-3 border-t border-gray-200">
+          <div className="flex space-x-4">
             <Link
-              href="/watchlist"
-              className={`px-3 py-2 rounded hover:bg-gray-100 ${
-                pathname === "/watchlist"
-                  ? "bg-gray-100 text-[#00539C] font-medium"
-                  : ""
+              href="/"
+              className={`px-3 py-2 text-sm ${
+                pathname === "/" ? "text-primary font-medium" : "text-gray-700"
               }`}
             >
-              Watchlist
+              Home
             </Link>
-          )}
 
-          {user ? (
-            <div className="flex items-center gap-2">
-              <span className="text-sm hidden md:inline text-gray-600">
-                {user.displayName}
-              </span>
-              <button
-                onClick={logOut}
-                className="px-3 py-2 rounded bg-red-500 hover:bg-red-600 text-white"
+            <Link
+              href="/movies/search"
+              className={`px-3 py-2 text-sm ${
+                pathname === "/movies/search"
+                  ? "text-primary font-medium"
+                  : "text-gray-700"
+              }`}
+            >
+              Search
+            </Link>
+
+            {user && (
+              <Link
+                href="/watchlist"
+                className={`px-3 py-2 text-sm ${
+                  pathname === "/watchlist"
+                    ? "text-primary font-medium"
+                    : "text-gray-700"
+                }`}
               >
-                Logout
-              </button>
-            </div>
-          ) : (
-            <Link
-              href="/auth/signin"
-              className={`px-3 py-2 rounded bg-[#00539C] hover:bg-[#003d73] text-white ${
-                pathname === "/auth/signin" ? "bg-[#003d73]" : ""
-              }`}
-            >
-              Sign In
-            </Link>
-          )}
+                Watchlist
+              </Link>
+            )}
+          </div>
         </div>
       </div>
     </nav>

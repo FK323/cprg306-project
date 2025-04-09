@@ -15,13 +15,18 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${inter.className} bg-white text-gray-800 min-h-screen`}
+        className={${inter.className} bg-background text-text min-h-screen flex flex-col}
       >
         <AuthProvider>
+          {/* Navigation bar */}
           <NavBar />
-          <main className="container mx-auto px-4 py-8">{children}</main>
-          <footer className="mt-auto py-6 bg-gray-100">
-            <div className="container mx-auto px-4 text-center text-gray-600 text-sm">
+
+          {/* Main content */}
+          <main className="flex-grow">{children}</main>
+
+          {/* Footer with */}
+          <footer className="py-8 bg-background-light border-t border-gray-200">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-text-light text-sm">
               <p>
                 CineTrack &copy; {new Date().getFullYear()}. Movie data provided
                 by TMDb.
